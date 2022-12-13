@@ -1,0 +1,55 @@
+#include "Location.h"
+
+/** @file test_Location.u
+  * @author Don Blaheta
+  * @version 27 Feb 2019 */
+
+test suite Location_test
+{
+  fixture:
+    Location pt34 = Location {3, 4};
+    Location pt00 = Location {};
+    Location pt5n12 = Location {5, -12};
+
+  tests:
+  test get
+  {
+    check(  pt34.getX() ) expect == 3;
+    check( pt5n12.getX() ) expect == 5;
+    check(  pt34.getY() ) expect == 4;
+    check( pt5n12.getY() ) expect == -12;
+  }
+
+  test equal
+  {
+    check ( pt34.isEqualTo(pt34) ) expect true;
+    check ( pt34.isEqualTo(pt00) ) expect false;
+    Location dup = Location{3,4};
+    check ( pt34.isEqualTo(dup) ) expect true;
+  }
+
+  test dir
+  {
+    check ( pt34.east().isEqualTo(Location{4,4}) ) expect true;
+    check ( pt34.west().isEqualTo(Location{2,4}) ) expect true;
+    check ( pt34.north().isEqualTo(Location{3,3}) ) expect true;
+    check ( pt34.south().isEqualTo(Location{3,5}) ) expect true;
+  }
+
+  test toString
+  {
+    check (pt34.toString()) expect == "(3,4)";
+    check (pt5n12.toString()) expect == "(5,-12)";
+  }
+
+  test print
+  {
+    stringstream pt34out;
+    pt34.print(pt34out);
+    check(pt34out.str()) expect == "(3,4)";
+
+    stringstream pt5n12out;
+    pt5n12.print(pt5n12out);
+    check(pt5n12out.str()) expect == "(5,-12)";
+  }
+};

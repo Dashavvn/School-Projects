@@ -1,0 +1,107 @@
+#include "Maze.h"
+
+#include <sstream>
+
+#include "Location.h"
+using namespace std;
+
+/** @file test_Maze.u
+  * @author Don Blaheta
+  * @version 27 Feb 2019 */
+
+test suite Maze_test 
+{
+  fixture:
+    Maze maze1 = Maze{};
+Maze maze2 = Maze{};
+Maze maze3 = Maze{};
+Maze maze4 = Maze{};
+    setup
+    {
+      stringstream maze1input ("5 3\n"
+                               "o#...\n"
+                               ".#.#.\n"
+                               "...#*\n");
+      maze1.read(maze1input);
+
+
+stringstream maze2input ("4 4/n"
+                         "####/n"
+			 "#o##/n"
+			 "*###/n"
+                         "####/n");
+
+      maze2.read(maze2input);
+
+stringstream maze3input ("6 4/n"
+                         "######/n"
+			 "#o..*#/n"
+			 "######/n"
+			 "######/n");
+
+      maze3.read(maze3input);
+
+stringstream maze4input ("5 4/n"
+                         "o..../n"
+			 "####./n"
+			 "####./n"
+			 "####*/n");
+
+      maze4.read(maze4input);
+    }
+
+  tests:
+    test readPrint
+    {
+      stringstream maze1output;
+      maze1.print(maze1output);
+      check (maze1output.str())
+      expect == "o#...\n"
+                ".#.#.\n"
+                "...#*\n";
+    }
+
+    test get
+    {
+      check( maze1.getWidth() ) expect == 5;
+      check( maze1.getHeight() ) expect == 3;
+    }
+
+    test elementAt
+    {
+      check( maze1.elementAt(Location{1,0}) ) expect == '#';
+      check( maze1.elementAt(Location{4,2}) ) expect == '*';
+
+      Location loc = Location{1,2};
+      check( maze1.elementAt(loc) ) expect == '.';
+    }
+     
+    test contains_general
+    {
+      // maze1 is 5x3
+      check ( maze1.contains(Location{1,1}) ) expect true;
+      check ( maze1.contains(Location{3,1}) ) expect true;
+      check ( maze1.contains(Location{3,4}) ) expect false;
+      check ( maze1.contains(Location{7,0}) ) expect false;
+      check ( maze1.contains(Location{-1,0}) ) expect false;
+      check ( maze1.contains(Location{1,-1}) ) expect false;
+    }
+     
+    test contains_edge
+    {
+      // maze1 is 5x3
+      check ( maze1.contains(Location{0,0}) ) expect true;
+      check ( maze1.contains(Location{4,2}) ) expect true;
+      check ( maze1.contains(Location{5,1}) ) expect false;
+      check ( maze1.contains(Location{3,3}) ) expect false;
+    }
+
+    test doesPathExist
+    {
+     check ( maze2.doesPathExist() ) expect false;
+     check ( maze3.doesPathExist() ) expect true;
+     check ( maze1.doesPathExist() ) expect true;
+     check ( maze4.doesPathExist() ) expect true;
+    }
+
+}
