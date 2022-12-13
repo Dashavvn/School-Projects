@@ -1,0 +1,10 @@
+#include "labfunctions.h"
+
+test suite piFromEuler
+{
+tests:
+  test simple
+  {
+    check (piFromEuler(1)) expect about 2.449 +- 0.001;
+  }
+}

@@ -1,0 +1,10 @@
+#include "labfunctions.h"
+
+test suite sumOfDigits
+{
+tests:
+  test simple
+  {
+    check (sumOfDigits(246)) expect == 12;
+  }
+}
