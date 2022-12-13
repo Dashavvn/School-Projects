@@ -3,10 +3,10 @@ Group members:
 	DaShawn Meredith
 
 Work:
-	-Command line input and parsing: DaShawn
-	-Command line input error checking: DaShawn
-	-File parsing: Garrett
-	-Scheduler and algorithms implementation: Garrett
+	-Command line input and parsing:
+	-Command line input error checking: 
+	-File parsing: 
+	-Scheduler and algorithms implementation: 
 
 To compile program:
 	'make'
