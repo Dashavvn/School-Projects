@@ -1,0 +1,50 @@
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include "boat.h"
+#include "car.h"
+#include <vector>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+
+	vector<Car> car_list(10);
+
+	vector<Boat> boat_list(10);
+
+	ifstream fin("inventory.dat");
+	string line;
+	getline(fin, line);
+	istringstream sin(line);
+	string name;
+	sin >> name;
+	
+	if(name == "car")
+	{
+	int c_id;
+	double c_price;
+	string c_age;
+	double c_size;
+	string c_MPH;
+	bool c_red;
+	sin >> c_id >> c_price >> c_age >> c_size >> c_MPH >> c_red;
+        car_list.insert(name, c_id, c_age, c_size, c_MPH, c_red);
+
+	}
+else
+{
+	istringstream sin(line);
+	int b_id;
+	double b_price;
+	string b_age;
+	double b_length;
+	bool b_yacht;
+	sin >> b_id >> b_price >> b_age >> b_length >> b_yacht;
+}
+fin.close();
+
+
+}
