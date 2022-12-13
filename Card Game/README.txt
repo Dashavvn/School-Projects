@@ -1,4 +1,4 @@
-Partial Implemented by Professor Don Blaheta. Edited/Finshed by Dashawn Meredith.
+Partially Implemented by Professor Don Blaheta. Edited/Finshed by Dashawn Meredith.
 
 
 To compile test:
