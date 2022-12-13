@@ -1,5 +1,4 @@
-Starter files for lab7
-(CMSC 162, s19, Blaheta)
+Implement Partially by Don Blaheta. Finished by Dashawn Meredith.
 
 Basically just a complete implementation of Labs 2 and 3.  Executables are
 test_Location and test_Maze (unit testing).
