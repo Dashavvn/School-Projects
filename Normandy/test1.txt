@@ -1,6 +1,0 @@
-proc1 1 1
-proc4 1 3
-proc3 5 12
-proc5 5 2
-proc4 1 1
-proc6 3 2

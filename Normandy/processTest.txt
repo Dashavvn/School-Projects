@@ -1,4 +1,0 @@
-proc1 2 10
-proc3 2 6
-proc2 2 8
-proc4 2 14
