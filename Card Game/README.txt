@@ -1,4 +1,4 @@
-Started by Don Blaheta. Edited by Dashawn Meredith.
+Partial Implemented by Professor Don Blaheta. Edited/Finshed by Dashawn Meredith.
 
 
 To compile test:
