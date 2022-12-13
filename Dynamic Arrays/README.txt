@@ -1,4 +1,4 @@
-Started by Robert Marmorstien. Edited by Dashawn Meredith. 
+Partially Implemented by Robert Marmorstien. Edited/Finished by Dashawn Meredith. 
 
 To compile:
 g++ -g warmup.cpp boat.cpp car.cpp -o warmup
