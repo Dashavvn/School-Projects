@@ -1,0 +1,15 @@
+#include "labfunctions.h"
+
+test suite lastVowel
+{
+tests:
+  test simpleWithVowel
+  {
+    check (lastVowel("Longwood")) expect == 'o';
+  }
+
+  test noVowel
+  {
+    check (lastVowel("nvrst")) expect == '!';
+  }
+}
